@@ -26,10 +26,6 @@ const noteSchema = new Schema({
 		default: Date.now
 	},
 	owner: {
-    type: String,
-		required: true
-	},
-	author: {
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 		required: true

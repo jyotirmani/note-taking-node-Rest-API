@@ -7,7 +7,7 @@ const notesController = {
   getAll(req, res) {
     const userId = req.userId;
     console.log('UserId:', userId);
-    Note.find({ author: userId })
+    Note.find({ owner: userId })
       .then(notes => {
         res.status(200).json({ message: 'Fetched all notes', notes: notes });
       })
@@ -20,7 +20,7 @@ const notesController = {
     const noteData = {
       title: req.body.title,
       content: req.body.content,
-      author: req.body.author
+      owner: req.body.owner
     };
     const note = new Note(noteData);
     note
@@ -42,7 +42,7 @@ const notesController = {
     const note = {
       title: req.body.title,
       content: req.body.content,
-      author: req.body.author
+      owner: req.body.owner
     };
     const noteId = req.params.noteId;
     Note.findOneAndUpdate({ _id: noteId }, note, { new: true })

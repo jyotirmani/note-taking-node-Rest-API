@@ -10,13 +10,12 @@
   "author": "JS",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.16.4",
     "express-load": "^1.1.16",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.12.12",
+    "mongoose": "^5.4.8",
     "mongoose-unique-validator": "^2.0.2",
-    "node-pre-gyp": "^0.17.0",
     "validator": "^10.11.0"
   },
   "devDependencies": {

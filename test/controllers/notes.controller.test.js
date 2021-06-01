@@ -15,12 +15,12 @@ describe('Notes Controller', function() {
   let mockNote = {
     title: 'Some title',
     content: 'Some content',
-    author: mongoose.Types.ObjectId().toHexString()
+    owner: mongoose.Types.ObjectId().toHexString()
   }
   let secondMockNote = {
     title: 'Anther title',
     content: 'Some more content',
-    author: '5c5365a60917ab26ace21626'
+    owner: '5c5365a60917ab26ace21626'
   }
 
   it('POST /notes creates a note with valid data', done => {
@@ -33,7 +33,7 @@ describe('Notes Controller', function() {
     res.on('end', () => {
       const data = JSON.parse(res._getData());
       expect(res._getStatusCode()).to.equal(201);
-      expect(data.note.author).to.eql(mockNote.author)
+      expect(data.note.owner).to.eql(mockNote.owner)
       done();
     });
     
@@ -53,7 +53,7 @@ describe('Notes Controller', function() {
       res.on('end', () => {
         expect(res._getStatusCode()).to.equal(200);
         const data = JSON.parse(res._getData());
-        expect(data.notes[0].author).to.equal('5c5365a60917ab26ace21626');
+        expect(data.notes[0].owner).to.equal('5c5365a60917ab26ace21626');
         done();
       });
       

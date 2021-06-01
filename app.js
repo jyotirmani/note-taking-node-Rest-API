@@ -7,7 +7,11 @@ const userRoutes = require('./routes/user.routes');
 const notesRoutes = require('./routes/notes.routes');
 
 // DB connection
-mongoose.connect('mongodb://localhost:27017/notedowntest', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/notedowntest', { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  useCreateIndex: true
+ });
 const db = mongoose.connection;
 db.once('open', () => console.log('Connected to MongoDb'));
 // db.on('error', console.error.bind(console, 'Connection error!'));
